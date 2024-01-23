@@ -242,12 +242,19 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 }, {})
 
+-- Changing color theme
+require('onedark').setup {
+    style = 'deep'
+}
+require('onedark').load()
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
 -- Set vertical ruler at column 80
-vim.cmd[[set colorcolumn=81,121]]
+vim.cmd[[set colorcolumn=81]]
+vim.cmd([[highlight ColorColumn ctermbg=Magenta guibg=#800080]])
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -274,7 +281,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = 'number'
 
 -- Decrease update time
 vim.o.updatetime = 250
